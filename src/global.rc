@@ -1,0 +1,29 @@
+name = Crawler
+combo = GrBe.handaxe
+default_manual_training = true
+macros += M p ===doRecommendedAction
+restart_after_game = false
+
+
+{
+	local nextKey
+
+	function ready()
+		nextKey = getKeys()
+		crawl.mpr("Press p to send: " .. nextKey)
+	end
+
+	function getKeys()
+		return "o"
+	end
+
+	function doRecommendedAction()
+		sendKeys(nextKey)
+	end
+	
+	function sendKeys(keys)
+		crawl.mpr("Sending: " .. keys)
+		crawl.sendkeys(keys)
+	end
+
+}
